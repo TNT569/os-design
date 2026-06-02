@@ -51,7 +51,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # 查找源文件
-file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c "utils/*.c")
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c" "utils/*.c")
 file(GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h" "utils/*.h")
 
 # 添加可执行文件
