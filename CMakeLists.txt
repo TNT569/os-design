@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(Snake
+project(myos
     VERSION 1.0.0
     DESCRIPTION "A modern CMake project which to build a snake"
     LANGUAGES CXX C  # 支持C和C++
@@ -51,8 +51,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # 查找源文件
-file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c")
-file(GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h")
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c "utils/*.c")
+file(GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h" "utils/*.h")
 
 # 添加可执行文件
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
