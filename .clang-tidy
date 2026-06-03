@@ -1,0 +1,15 @@
+# .clang-tidy
+Checks: '-*,
+  bugprone-*,
+  performance-*,
+  readability-*,
+  clang-analyzer-*'
+
+# 你的驼峰命名配置
+CheckOptions:
+  - key: readability-identifier-naming.VariableCase
+    value: camelBack
+  - key: readability-identifier-naming.FunctionCase
+    value: camelBack
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
