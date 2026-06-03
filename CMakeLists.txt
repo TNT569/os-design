@@ -25,6 +25,7 @@ if(MSVC)
     add_compile_options(/TC)  # 编译C代码（不是C++）
     
     # 设置C标准（MSVC支持有限）
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
     set(CMAKE_C_STANDARD 99)
     set(CMAKE_C_STANDARD_REQUIRED ON)
     set(CMAKE_C_EXTENSIONS OFF)
