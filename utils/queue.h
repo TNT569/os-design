@@ -9,21 +9,24 @@ typedef struct {
 } Queue;
 
 /* 初始化队列 */
-void init_queue(Queue *q);
+void initQueue(Queue *queue);
 
 /* 检查队列是否为空 */
-int queue_empty(Queue *q);
+int queueEmpty(Queue *queue);
+
+/* 检查队列是否已满 */
+int queueFull(Queue *queue);
 
 /* 入队操作 */
-void enqueue(Queue *q, int value);
+void enqueue(Queue *queue, int value);
 
 /* 出队操作 */
-int dequeue(Queue *q);
+int dequeue(Queue *queue);
 
 /* 获取队首元素但不删除 */
-int queue_front(Queue *q);
+int queueFront(Queue *queue);
 
 /* 获取队列大小 */
-int queue_size(Queue *q);
+int queueSize(Queue *queue);
 
 #endif /* QUEUE_USING_STACKS_H */

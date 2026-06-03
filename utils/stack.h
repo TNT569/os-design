@@ -1,29 +1,29 @@
 #ifndef STACK_H
 #define STACK_H
 
-#define MAX_SIZE 500 
+#define MAX_SIZE 500
 
 typedef struct {
-    int data[MAX_SIZE];
-    int top;
+  int data[MAX_SIZE];
+  int top;
 } Stack;
 
 // 初始化栈
-void init_stack(Stack *s);
+void initStack(Stack *stack);
 
 // 判断栈是否满
-int stack_full(Stack *s);
+int stackFull(Stack *stack);
 
 // 判断栈是否空
-int stack_empty(Stack *s);
+int stackEmpty(Stack *stack);
 
 // 入栈
-void push(Stack *s, int value);
+void push(Stack *stack, int value);
 
 // 出栈
-int pop(Stack *s);
+int pop(Stack *stack);
 
 // 取栈顶元素（不弹出）
-int peek(Stack *s);
+int peek(Stack *stack);
 
 #endif // STACK_H
