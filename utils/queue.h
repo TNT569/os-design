@@ -29,4 +29,4 @@ int queueFront(Queue *queue);
 /* 获取队列大小 */
 int queueSize(Queue *queue);
 
-#endif /* QUEUE_USING_STACKS_H */
+#endif /* QUEUE_H */
