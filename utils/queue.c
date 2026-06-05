@@ -1,6 +1,16 @@
 #include "queue.h"
 #include <stdio.h>
 
+void swapStack(Queue *queue) {
+  // 如果output_stack为空，则从input_stack转移元素
+  if (stackEmpty(&queue->output_stack)) {
+    while (!stackEmpty(&queue->input_stack)) {
+      int value = pop(&queue->input_stack);
+      push(&queue->output_stack, value);
+    }
+  }
+}
+
 void initQueue(Queue *queue) {
   initStack(&queue->input_stack);
   initStack(&queue->output_stack);
@@ -21,13 +31,7 @@ int dequeue(Queue *queue) {
     return -1;
   }
 
-  // 如果output_stack为空，则从input_stack转移元素
-  if (stackEmpty(&queue->output_stack)) {
-    while (!stackEmpty(&queue->input_stack)) {
-      int value = pop(&queue->input_stack);
-      push(&queue->output_stack, value);
-    }
-  }
+  swapStack(queue);
 
   // 从output_stack弹出
   return pop(&queue->output_stack);
@@ -39,13 +43,7 @@ int queueFront(Queue *queue) {
     return -1;
   }
 
-  // 如果output_stack为空，则从input_stack转移所有元素
-  if (stackEmpty(&queue->output_stack)) {
-    while (!stackEmpty(&queue->input_stack)) {
-      int value = pop(&queue->input_stack);
-      push(&queue->output_stack, value);
-    }
-  }
+  swapStack(queue);
 
   // 直接查看output_stack的栈顶（即队列前端）
   return peek(&queue->output_stack);
