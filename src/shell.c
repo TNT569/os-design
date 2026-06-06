@@ -25,7 +25,7 @@ int shellInit(char *username) {
   shellRegister("echo", doEcho, "echo <text> \nEcho what you input");
   shellRegister("help", doHelp, "help <command> \nShow helptext of command");
   shellRegister("exit", doExit,
-                "exit <exitcode>\nExit shell with <code(deaflut=0)>");
+                "exit <exitcode>\nExit shell with <code(defalut=0)>");
 
   return 0;
 }
