@@ -1,13 +1,21 @@
 #include "shell.h"
+#include "commom.h"
 #include <stdio.h>
 #include <string.h>
-char currentDir[PATH_MAX];
 
-void shellInit() { strcpy(currentDir, "/"); }
+char currentUser[USERNAME_MAX];
+
+int shellInit() {
+  if (strcmp(currentUser, "") == 0) {
+    fprintf(stderr, "[%sERROR%s] No user login\n", COLOR_RED, COLOR_RESET);
+    return -1;
+  }
+  return 0;
+}
 
 int shellLoop() {
   char buffer[BUFFER_SIZE];
-  printf("sh$");
+  printf("%s@localhost$", currentUser);
   if (fgets(buffer, sizeof(buffer), stdin)) {
     buffer[strcspn(buffer, "\n")] = '\0';
     // 去除fgets留在末尾的换行
