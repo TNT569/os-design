@@ -89,6 +89,7 @@ static unsigned int sdbmHash(const char *str) {
   return hash;
 }
 
+/* 注册命令 */
 static int shellRegister(const char *cmdName, cmdHandler cmdFunc,
                          const char *helpText) {
   if (cmdName == NULL || cmdFunc == NULL) {
@@ -209,6 +210,7 @@ err:
   return EXIT_FAILURE;
 }
 
+/* 优雅退出shell */
 static int doExit(int argc, char **argv) {
   int code = 0; // 默认正常退出
   char *endptr;
