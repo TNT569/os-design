@@ -1,18 +1,42 @@
 #include "log.h"
-#include "common.h"
+#include "common.h" // ← 注意：你原代码拼写为 commom.h，请确认实际文件名
+#include <stdarg.h>
 #include <stdio.h>
-void logWrite(logType type, const char *logInfo) {
+
+void logWrite(logType type, const char *fmt, ...) {
+  FILE *out;
+  const char *prefix;
+  const char *colorStart = "";
+  const char *colorEnd = "";
+
+  // 统一处理输出流和前缀，减少重复代码
   switch (type) {
   case ERR:
-    fprintf(stderr, "[%sERROR%s] %s\n", COLOR_RED, COLOR_RESET, logInfo);
+    out = stderr;
+    colorStart = COLOR_RED;
+    colorEnd = COLOR_RESET;
+    prefix = "ERROR";
     break;
-
   case WRN:
-    fprintf(stdout, "[%sWARN%s] %s\n", COLOR_YELLOW, COLOR_RESET, logInfo);
+    out = stdout;
+    colorStart = COLOR_YELLOW;
+    colorEnd = COLOR_RESET;
+    prefix = "WARN";
     break;
-
   case INF:
-    fprintf(stdout, "[INFO] %s\n", logInfo);
+  default:
+    out = stdout;
+    prefix = "INFO";
     break;
   }
+
+  // 用 vfprintf 替代 fprintf，透传格式化能力
+  fprintf(out, "[%s%s%s] ", colorStart, prefix, colorEnd);
+
+  va_list args;
+  va_start(args, fmt);
+  vfprintf(out, fmt, args); // ← 格式化在这里完成
+  va_end(args);
+
+  fprintf(out, "\n");
 }
