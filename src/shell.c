@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+char currentUser[USERNAME_MAX];
+int cmdCount;
+ShellCmdEntry cmdBucket[CMDSIZE_MAX];
 /* 初始化shell，注册命令，传入登录的用户名 */
 int shellInit(char *username) {
   cmdCount = 0;

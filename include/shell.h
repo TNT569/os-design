@@ -15,9 +15,9 @@ typedef struct {
   int occupied;            // 开放寻址必须有的“已占用”标记
 } ShellCmdEntry;
 
-static char currentUser[USERNAME_MAX];
-static int cmdCount;
-static ShellCmdEntry cmdBucket[CMDSIZE_MAX];
+extern char currentUser[USERNAME_MAX];
+extern int cmdCount;
+extern ShellCmdEntry cmdBucket[CMDSIZE_MAX];
 
 int shellInit(char *username);
 int shellLoop();
