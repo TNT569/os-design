@@ -27,6 +27,9 @@ int main(void) {
   shellRegister("mkfile", doMkfile,
                 UNDERLINE "mkfile <path> <size>\n" COLOR_RESET
                           "Create a file with given size");
+  shellRegister("touch", doMkfile,
+                UNDERLINE "touch <path> <size>\n" COLOR_RESET
+                          "Create a file with given size");
   shellRegister("mkdir", doMkdir,
                 UNDERLINE "mkdir <path>\n" COLOR_RESET "Create a subdirectory");
   shellRegister("rm", doRm,
