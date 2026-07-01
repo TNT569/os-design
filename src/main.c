@@ -25,18 +25,32 @@ int main(void) {
 
   /* 注册文件系统命令 */
   shellRegister("mkfile", doMkfile,
-                "mkfile <path> <size>\nCreate a file with given size");
-  shellRegister("mkdir", doMkdir, "mkdir <path>\nCreate a subdirectory");
-  shellRegister("rm", doRm, "rm <path>\nDelete a file");
+                UNDERLINE "mkfile <path> <size>\n" COLOR_RESET
+                          "Create a file with given size");
+  shellRegister("mkdir", doMkdir,
+                UNDERLINE "mkdir <path>\n" COLOR_RESET "Create a subdirectory");
+  shellRegister("rm", doRm,
+                UNDERLINE "rm <path>\n" COLOR_RESET "Delete a file");
   shellRegister("rmdir", doRmdir,
-                "rmdir <path>\nDelete a subdirectory (must be empty)");
-  shellRegister("ls", doLs, "ls [path]\nList directory contents");
-  shellRegister("open", doOpen, "open <path>\nOpen a file, returns fd");
-  shellRegister("close", doClose, "close <fd>\nClose a file by fd");
-  shellRegister("read", doRead, "read <path> <size>\nRead from file and print");
-  shellRegister("write", doWrite, "write <path> <data>\nWrite data to file");
-  shellRegister("df", doDf, "df\nShow disk usage statistics");
-  shellRegister("viz", doViz, "viz\nToggle visualization on/off");
+                UNDERLINE "rmdir <path>\n" COLOR_RESET
+                          "Delete a subdirectory (must be empty)");
+  shellRegister("ls", doLs,
+                UNDERLINE "ls [path]\n" COLOR_RESET "List directory contents");
+  shellRegister("open", doOpen,
+                UNDERLINE "open <path>\n" COLOR_RESET
+                          "Open a file, returns fd");
+  shellRegister("close", doClose,
+                UNDERLINE "close <fd>\n" COLOR_RESET "Close a file by fd");
+  shellRegister("read", doRead,
+                UNDERLINE "read <path> <size>\n" COLOR_RESET
+                          "Read from file and print");
+  shellRegister("write", doWrite,
+                UNDERLINE "write <path> <data>\n" COLOR_RESET
+                          "Write data to file");
+  shellRegister("df", doDf,
+                UNDERLINE "df\n" COLOR_RESET "Show disk usage statistics");
+  shellRegister("viz", doViz,
+                UNDERLINE "viz\n" COLOR_RESET "Toggle visualization on/off");
 
   /* 初始化 Shell */
   if (shellInit("root") != 0) {

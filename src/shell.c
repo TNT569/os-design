@@ -1,4 +1,5 @@
 #include "shell.h"
+#include "common.h"
 #include "log.h"
 #include <errno.h>
 #include <stdio.h>
@@ -186,10 +187,14 @@ int shellInit(char *username) {
     return EXIT_FAILURE;
   }
 
-  shellRegister("echo", doEcho, "echo <text> \nEcho what you input");
-  shellRegister("help", doHelp, "help <command> \nShow helptext of command");
+  shellRegister("echo", doEcho,
+                UNDERLINE "echo <text> \n" COLOR_RESET "Echo what you input");
+  shellRegister("help", doHelp,
+                UNDERLINE "help <command> \n" COLOR_RESET
+                          "Show helptext of command");
   shellRegister("exit", doExit,
-                "exit <exitcode>\nExit shell with <code(default=0)>");
+                UNDERLINE "exit <exitcode>\n" COLOR_RESET
+                          "Exit shell with <code(default=0)>");
 
   return 0;
 }
@@ -257,7 +262,7 @@ static int doHelp(int argc, char **argv) {
   if (argc == 1) {
     for (int idx = 0; idx < CMDSIZE_MAX; idx++) {
       if (cmdBucket[idx].occupied == 1) {
-        printf("%s\n", cmdBucket[idx].help);
+        printf("%s\n\n", cmdBucket[idx].help);
       }
     }
   }
@@ -270,7 +275,6 @@ static int doHelp(int argc, char **argv) {
     goto err;
   }
 
-  printf("%s\n", cmdBucket[idx].help);
   return 0;
 
 err:
