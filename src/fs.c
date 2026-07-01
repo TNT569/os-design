@@ -372,7 +372,7 @@ int createDir(const char *path) {
   }
 
   /* 为子目录内容分配块（默认 2 块 = 128 字节 = 2 条目） */
-  int subBlocks = 2;
+  int subBlocks = 16;
   int subStart = allocBlocks(subBlocks);
   if (subStart < 0) {
     logWrite(ERR, "createDir: failed to allocate %d blocks for dir", subBlocks);
