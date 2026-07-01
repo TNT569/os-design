@@ -26,6 +26,8 @@ void logWrite(logType type, const char *fmt, ...) {
   case INF:
   default:
     out = stdout;
+    colorStart = COLOR_GREEN;
+    colorEnd = COLOR_RESET;
     prefix = "INFO";
     break;
   }
