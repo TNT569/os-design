@@ -12,7 +12,7 @@ if(MSVC)
 endif()
 
 # 设置严格的 C 标准
-set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)  # 使用标准 C，而非 GNU 扩展
 

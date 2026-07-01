@@ -1,6 +1,6 @@
 #include "shell.h"
 #include "log.h"
-#include <asm-generic/errno-base.h>
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
